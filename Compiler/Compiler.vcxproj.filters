@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Word.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Symbol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Symbols.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Exps.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LexicalAnalyser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FileProcessor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\Var.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\RetInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\LabelGenerator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\Func.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\CodeType.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\Pcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodeGeneration\PCodeExecutor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\KeyWordMap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Error.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GrammaticalAnalyser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Word.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Symbol.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Symbols.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Function.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Exps.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LexicalAnalyser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileProcessor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\Var.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\RetInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\LabelGeneratior.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\Func.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\Pcode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\PCodeExecutor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KeyWordMap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Error.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GrammaticalAnalyser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CodeGeneration\CodeType.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="testfile.txt" />
+    <Text Include="error.txt" />
+    <Text Include="pcode.txt" />
+    <Text Include="pcoderesult.txt" />
+  </ItemGroup>
+</Project>
