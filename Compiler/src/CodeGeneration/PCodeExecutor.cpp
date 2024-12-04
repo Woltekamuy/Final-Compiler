@@ -1,5 +1,5 @@
 #include "../../include/CodeGeneration/PCodeExecutor.h"
-
+#pragma warning(disable : 4996)
 
 PCodeExecutor::PCodeExecutor(const std::vector<PCode>& codes, std::ofstream& writer)
     : codes(codes), writer(writer) {
@@ -272,13 +272,14 @@ void PCodeExecutor::run() {
         }
         case CodeType::GETINT: {
             int input;
-            std::cin >> input;
+            scanf("%d", &input);
+            while (getchar() != '\n');
             push(input);
             break;
         }
         case CodeType::GETCHAR: {
             char input;
-            std::cin >> input;
+            scanf("%c", &input);
             push(input % 256);
             break;
         }
@@ -380,6 +381,7 @@ void PCodeExecutor::run() {
 void PCodeExecutor::print() {
     for (const std::string& s : prints) {
         writer.write(s.c_str(), s.length());
+        std::cout << s;
     }
     writer.flush();
 }

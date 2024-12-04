@@ -1,4 +1,4 @@
-#include "../../include/GrammaticalAnalyser.h"
+#include "../include/GrammaticalAnalyser.h"
 #include <fstream>  
 #include <stdexcept>
 #include <algorithm>

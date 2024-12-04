@@ -1,309 +1,33 @@
-VAR 0_constIntArray
-PUSH 3
-DIMVAR 0_constIntArray, 1
-PUSH 10
-PUSH 20
-PUSH 30
-COMPLEMENT 0_constIntArray, 3
-VAR 0_constCharArray
-PUSH 5
-DIMVAR 0_constCharArray, 1
-PUSH 65
-PUSH 256
-MOD 
-PUSH 66
-PUSH 256
-MOD 
-PUSH 67
-PUSH 256
-MOD 
-PUSH 68
-PUSH 256
-MOD 
-PUSH 69
-PUSH 256
-MOD 
-COMPLEMENT 0_constCharArray, 5
-VAR 0_constCharArray2
-PUSH 5
-DIMVAR 0_constCharArray2, 1
-PUSH 97
-PUSH 256
-MOD 
-PUSH 98
-PUSH 256
-MOD 
-PUSH 99
-PUSH 256
-MOD 
-COMPLEMENT 0_constCharArray2, 0
-VAR 0_intArray
-PUSH 5
-DIMVAR 0_intArray, 1
-PLACEHOLDER 0_intArray, 1
-VAR 0_charArray
-PUSH 5
-DIMVAR 0_charArray, 1
-PLACEHOLDER 0_charArray, 1
-FUNC @func_with_param:
-PARA 1_a, 0
+FUNC @f:
+PARA 1_a, 1
 PARA 1_b, 0
-PARA 1_arr, 1
-PARA 1_str, 1
 PUSH 1_a
-VALUE 1_a, 0
-PUSH 1_b
-VALUE 1_b, 0
-PUSH 1_arr
-PUSH 0
-VALUE 1_arr, 0
-PUSH 1_str
-PUSH 0
-VALUE 1_str, 0
-PRINT "Function with parameters: a = %d, b = %c arr[0] = %d, str[0] = %c
-"
-VAR 1_sum
-PUSH 1_a
+PUSH 5
 VALUE 1_a, 0
 PUSH 1_b
 VALUE 1_b, 0
 ADD 
-PUSH 1_arr
-PUSH 0
-VALUE 1_arr, 0
-ADD 
-PUSH 1_str
-PUSH 0
-VALUE 1_str, 0
-ADD 
-PUSH 1_sum
-VALUE 1_sum, 0
-PRINT "Sum in func_with_param: %d
-"
-PUSH 1_sum
-VALUE 1_sum, 0
 RET 1
 RET 0
 ENDFUNC 
 MAIN main
-PRINT "22373141
-"
-PUSH 0_intArray
-PUSH 0
-ADDRESS 0_intArray, 0
-PUSH 0_constIntArray
-PUSH 0
-VALUE 0_constIntArray, 0
-POP 0_intArray
-PUSH 0_intArray
+VAR 2_a
+PUSH 100
+DIMVAR 2_a, 1
 PUSH 1
-ADDRESS 0_intArray, 0
-PUSH 0_constIntArray
-PUSH 1
-VALUE 0_constIntArray, 0
-POP 0_intArray
-PUSH 0_intArray
 PUSH 2
-ADDRESS 0_intArray, 0
-PUSH 0_constIntArray
-PUSH 2
-VALUE 0_constIntArray, 0
-POP 0_intArray
-PUSH 0_intArray
 PUSH 3
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-PUSH 0_intArray
-PUSH 1
-VALUE 0_intArray, 0
-ADD 
-POP 0_intArray
-PUSH 0_intArray
 PUSH 4
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 3
-VALUE 0_intArray, 0
-PUSH 0_intArray
-PUSH 2
-VALUE 0_intArray, 0
-ADD 
-POP 0_intArray
-PUSH 0_intArray
-PUSH 0
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-NEG 
-POP 0_intArray
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-PRINT "Negative intArray[0]: %d
-"
-PUSH 0_intArray
-PUSH 0
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-POS 
-POP 0_intArray
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-PRINT "Positive intArray[0]: %d
-"
-PUSH 0_intArray
-PUSH 1
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 3
-VALUE 0_intArray, 0
-PUSH 0_intArray
-PUSH 2
-VALUE 0_intArray, 0
-DIV 
-POP 0_intArray
-PUSH 0_intArray
-PUSH 2
-ADDRESS 0_intArray, 0
-PUSH 0_intArray
-PUSH 3
-VALUE 0_intArray, 0
-PUSH 0_intArray
-PUSH 2
-VALUE 0_intArray, 0
-MOD 
-POP 0_intArray
-PUSH 0_intArray
-PUSH 1
-VALUE 0_intArray, 0
-PUSH 0_intArray
-PUSH 2
-VALUE 0_intArray, 0
-PRINT "Quotient: %d, Remainder: %d
-"
-PUSH 0_charArray
-PUSH 0
-ADDRESS 0_charArray, 0
-PUSH 0_constCharArray
-PUSH 0
-VALUE 0_constCharArray, 0
-PUSH 0_constCharArray
-PUSH 1
-VALUE 0_constCharArray, 0
-ADD 
-PUSH 0_constCharArray
-PUSH 2
-VALUE 0_constCharArray, 0
-ADD 
-PUSH 0_constCharArray
-PUSH 3
-VALUE 0_constCharArray, 0
-ADD 
-PUSH 0_constCharArray
-PUSH 4
-VALUE 0_constCharArray, 0
-ADD 
-PUSH 256
-MOD 
-POP 0_charArray
-PUSH 0_charArray
-PUSH 0
-VALUE 0_charArray, 0
-PUSH 0_charArray
-PUSH 0
-VALUE 0_charArray, 0
-PRINT "Sum of ASCII codes1: %d %c
-"
-VAR 2_result
-PUSH 0_intArray
-PUSH 0
-VALUE 0_intArray, 0
-RPARA 0
-PUSH 0_charArray
-PUSH 0
-VALUE 0_charArray, 0
-RPARA 0
-PUSH 0_intArray
-ADDRESS 0_intArray, 1
-RPARA 1
-PUSH 0_charArray
-ADDRESS 0_charArray, 1
-RPARA 1
-$func_with_param
-VAR 2_asciiSum
-PUSH 0_constCharArray2
-PUSH 0
-VALUE 0_constCharArray2, 0
-PUSH 0_constCharArray2
-PUSH 1
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 2
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 3
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 4
-VALUE 0_constCharArray2, 0
-ADD 
-VAR 2_charSum
-PUSH 0_constCharArray2
-PUSH 0
-VALUE 0_constCharArray2, 0
-PUSH 0_constCharArray2
-PUSH 1
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 2
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 3
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 0_constCharArray2
-PUSH 4
-VALUE 0_constCharArray2, 0
-ADD 
-PUSH 256
-MOD 
-PUSH 2_asciiSum
-VALUE 2_asciiSum, 0
-PUSH 2_charSum
-VALUE 2_charSum, 0
-PRINT "Sum of ASCII codes2: %d %c
-"
-VAR 2_x1
-PUSH 97
-PUSH 10
-ADD 
-PUSH 2_x1
-VALUE 2_x1, 0
-PRINT "x1 = %d
-"
-VAR 2_a1
-PUSH 48
+PUSH 5
+PUSH 6
 PUSH 7
-SUB 
-PUSH 256
-MOD 
-PUSH 2_a1
-VALUE 2_a1, 0
-PUSH 2_a1
-VALUE 2_a1, 0
-PRINT "a1 = %d, as char: %c
-"
+COMPLEMENT 2_a, 7
+PUSH 2_a
+ADDRESS 2_a, 1
+RPARA 1
+PUSH 1
+RPARA 0
+$f
 PUSH 0
 RET 1
 EXIT 

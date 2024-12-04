@@ -11,6 +11,5 @@ int main() {
 	PCodeExecutor pCodeExecutor(grammaticalAnalyser.getCodes(),fileProcessor.getWriter());
 	pCodeExecutor.run();
 	pCodeExecutor.print();
-
 	return 0;
 }

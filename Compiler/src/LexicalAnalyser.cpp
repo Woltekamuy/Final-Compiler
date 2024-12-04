@@ -215,16 +215,16 @@ void LexicalAnalyser::analyseChar() {
     if (charStr == "\\") {
         char c = getChar();
         switch (c) {
-        case 'a': c = (char)7; break;
-        case 'b': c = (char)8; break;
-        case 't': c = (char)9; break;
-        case 'n': c = (char)10; break;
-        case 'v': c = (char)11; break;
-        case 'f': c = (char)12; break;
-        case '"': c = (char)34; break;
-        case '\'': c = (char)39; break;
-        case '\\': c = (char)92; break;
-        case '0': c = (char)0; break;
+        case 'a': charStr = (char)7; break;
+        case 'b': charStr = (char)8; break;
+        case 't': charStr = (char)9; break;
+        case 'n': charStr = (char)10; break;
+        case 'v': charStr = (char)11; break;
+        case 'f': charStr = (char)12; break;
+        case '"': charStr = (char)34; break;
+        case '\'': charStr = (char)39; break;
+        case '\\': charStr = (char)92; break;
+        case '0': charStr = (char)0; break;
         }
     }
     words.push_back(Word("CHARCON", charStr, lineNum));
