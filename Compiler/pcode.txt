@@ -1,33 +1,44 @@
-FUNC @f:
-PARA 1_a, 1
-PARA 1_b, 0
-PUSH 1_a
-PUSH 5
-VALUE 1_a, 0
-PUSH 1_b
-VALUE 1_b, 0
-ADD 
-RET 1
-RET 0
-ENDFUNC 
 MAIN main
-VAR 2_a
-PUSH 100
-DIMVAR 2_a, 1
+VAR 1_i
 PUSH 1
+label_for_init_3: 
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 1
+POP 1_i
+label_for_cond_4: 
+PUSH 1_i
+VALUE 1_i, 0
 PUSH 2
-PUSH 3
-PUSH 4
-PUSH 5
-PUSH 6
-PUSH 7
-COMPLEMENT 2_a, 7
-PUSH 2_a
-ADDRESS 2_a, 1
-RPARA 1
+CMPLE 
+label_cond_0_7: 
+JZ label_for_end_2
+JMP label_for_block_5
+label_for_inc_6: 
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 1_i
+VALUE 1_i, 0
 PUSH 1
-RPARA 0
-$f
+ADD 
+POP 1_i
+JMP label_for_cond_4
+label_for_block_5: 
+VAR 2_sum
+PUSH 0
+PUSH 2_sum
+ADDRESS 2_sum, 0
+PUSH 2_sum
+VALUE 2_sum, 0
+PUSH 1
+ADD 
+POP 2_sum
+PUSH 2_sum
+VALUE 2_sum, 0
+PRINT "%d
+"
+JMP label_for_inc_6
+label_for_end_2: 
 PUSH 0
 RET 1
 EXIT 

@@ -24,7 +24,7 @@ private:
 
     int area = -1;
     bool needReturn = false;
-    int whileFlag = 0;
+    int forFlag = 0;
     bool is_char = false;
     bool last_for_stmt = false;
     int initialNum = -1;

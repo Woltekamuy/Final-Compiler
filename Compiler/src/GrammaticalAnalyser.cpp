@@ -286,7 +286,7 @@ bool GrammaticalAnalyser::analyseStmt() {
         });
 
         getWord(); // for
-        whileFlag++;
+        forFlag++;
         getWord(); // (
         codes.emplace_back(PCode(CodeType::LABEL, 
            forLabels.back()["for_init"],ValueType::STRING));
@@ -327,13 +327,13 @@ bool GrammaticalAnalyser::analyseStmt() {
         codes.emplace_back(PCode(CodeType::LABEL, 
            forLabels.back()["for_end"], ValueType::STRING));
         forLabels.pop_back();
-        whileFlag--;
+        forFlag--;
     }
     else if (word.typeEquals("BREAKTK")) {
         getWord(); // break
         codes.emplace_back(PCode(CodeType::JMP, 
          forLabels.back()["for_end"], ValueType::STRING));
-        if (whileFlag == 0) {
+        if (forFlag == 0) {
             error("m");
         }
         checkSemicn(); // ;
@@ -342,7 +342,7 @@ bool GrammaticalAnalyser::analyseStmt() {
         getWord(); // continue
         codes.emplace_back(PCode(CodeType::JMP, 
           forLabels.back()["for_inc"], ValueType::STRING));
-        if (whileFlag == 0) {
+        if (forFlag == 0) {
             error("m");
         }
         checkSemicn(); // ;
