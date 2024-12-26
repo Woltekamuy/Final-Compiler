@@ -1,44 +1,27 @@
 MAIN main
 VAR 1_i
 PUSH 1
-label_for_init_3: 
-PUSH 1_i
-ADDRESS 1_i, 0
-PUSH 1
-POP 1_i
-label_for_cond_4: 
+label_while_1: 
 PUSH 1_i
 VALUE 1_i, 0
-PUSH 2
+PUSH 10
 CMPLE 
-label_cond_0_7: 
-JZ label_for_end_2
-JMP label_for_block_5
-label_for_inc_6: 
-PUSH 1_i
-ADDRESS 1_i, 0
+label_cond_0_4: 
+JZ label_while_end_2
+label_while_block_3: 
 PUSH 1_i
 VALUE 1_i, 0
-PUSH 1
-ADD 
-POP 1_i
-JMP label_for_cond_4
-label_for_block_5: 
-VAR 2_sum
-PUSH 0
-PUSH 2_sum
-ADDRESS 2_sum, 0
-PUSH 2_sum
-VALUE 2_sum, 0
-PUSH 1
-ADD 
-POP 2_sum
-PUSH 2_sum
-VALUE 2_sum, 0
 PRINT "%d
 "
-JMP label_for_inc_6
-label_for_end_2: 
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1
+ADD 
+POP 1_i
+JMP label_while_1
+label_while_end_2: 
 PUSH 0
 RET 1
 EXIT 

@@ -9,6 +9,7 @@
 #include "Function.h"  
 #include"Symbols.h"
 #include"Error.h"
+#include"Errors.h"
 #include "Exps.h"
 
 class GrammaticalAnalyser {
@@ -18,9 +19,9 @@ private:
     Word curWord;
     std::vector<std::string> grammar;
 
-    std::unordered_map<int, Symbols> symbols;  // Assuming Symbols class exists
+    std::unordered_map<int, Symbols> symbols;  
     std::unordered_map<std::string, Function> functions;
-    std::vector<Error> errors;  // Assuming Error class exists
+    //std::vector<Error> errors;  
 
     int area = -1;
     bool needReturn = false;
@@ -47,7 +48,6 @@ private:
     void error(std::string type, int lineNum);
     void error();
     void printWords(std::ofstream& writer);
-    void printErrors(std::ofstream& writer);
     void addArea();
     void removeArea();
     bool isConst(Word word);
@@ -103,6 +103,7 @@ private:
 
 
 public:
+    void printErrors();
     GrammaticalAnalyser(const std::vector<Word>& words);
     void printPCode();
     std::vector<PCode> getCodes();

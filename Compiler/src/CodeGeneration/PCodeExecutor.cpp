@@ -48,13 +48,16 @@ Var PCodeExecutor::getVar(const std::string& ident) {
 	}
 }
 
+
 int PCodeExecutor::getAddress(Var& var, int intType) {
 	int address = 0;
 	int n = var.getDimension() - intType;
 	if (n == 0) {
+		//若为普通变量，则直接获得地址
 		address = var.getIndex();
 	}
 	if (n == 1) {
+		//若为数组，则在基地址的基础上加上i*维度，i在栈顶
 		int i = pop();
 		if (var.getDimension() == 1) {
 			address = var.getIndex() + i;
@@ -100,6 +103,7 @@ void PCodeExecutor::run() {
 			}
 			break;
 		}
+		//注意POP会弹出两个值，并且将栈顶值赋值给地址为次栈顶的位置
 		case CodeType::POP: {
 			int value = pop();
 			int address = pop();
@@ -223,6 +227,7 @@ void PCodeExecutor::run() {
 			break;
 		}
 		case CodeType::PARA: {
+			//之前已经将参数入栈，现在是逐步取出并且设为变量
 			int num = rparas.size() - callArgsNum + nowArgsNum;
 			Var para(rparas[num]);
 			int n = std::stoi(code.getValue2());
@@ -231,7 +236,9 @@ void PCodeExecutor::run() {
 				para.setDim2(pop());
 			}
 			varTable.emplace(code.getValue1(), para);
+			//已经设置的变量+1
 			nowArgsNum++;
+			//全部变量设置完成
 			if (nowArgsNum == callArgsNum) {
 				rparas.erase(rparas.end() - callArgsNum, rparas.end());
 			}
@@ -249,7 +256,8 @@ void PCodeExecutor::run() {
 				stack.erase(stack.begin() + offset, stack.end() - 1);
 			}
 			else {
-				stack.erase(stack.begin() + info.getStackPtr() + 1 - info.getParaNum(), stack.end());
+				int offset = info.getStackPtr() + 1 - info.getParaNum();
+				stack.erase(stack.begin() + offset, stack.end());
 			}
 			retInfos.pop_back();
 			break;
@@ -315,13 +323,16 @@ void PCodeExecutor::run() {
 			prints.push_back(result.substr(1, result.length() - 2));
 			break;
 		}
+		// 将变量的值压入栈顶
 		case CodeType::VALUE: {
 			Var var = getVar(code.getValue1());
 			int n = std::stoi(code.getValue2());
+			//注意这里的n是反着的
 			int address = getAddress(var, n);
 			push(stack[address]);
 			break;
 		}
+		//将变量的地址压入栈顶
 		case CodeType::ADDRESS: {
 			Var var = getVar(code.getValue1());
 			int n = std::stoi(code.getValue2());
@@ -329,6 +340,7 @@ void PCodeExecutor::run() {
 			push(address);
 			break;
 		}
+		// 取出栈顶元素设为维度
 		case CodeType::DIMVAR: {
 			Var var = getVar(code.getValue1());
 			int n = std::stoi(code.getValue2());
@@ -346,6 +358,7 @@ void PCodeExecutor::run() {
 			}
 			break;
 		}
+		//完全没有初始化时PLA，部分初始化COMPLE，n为初始化的变量数
 		case CodeType::COMPLEMENT: {
 			Var var = getVar(code.getValue1());
 			int n = std::stoi(code.getValue2());

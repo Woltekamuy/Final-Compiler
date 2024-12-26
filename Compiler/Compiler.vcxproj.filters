@@ -66,6 +66,9 @@
     <ClInclude Include="include\GrammaticalAnalyser.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\Errors.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Word.cpp">
@@ -122,11 +125,15 @@
     <ClCompile Include="src\CodeGeneration\CodeType.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\Errors.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="testfile.txt" />
     <Text Include="error.txt" />
     <Text Include="pcode.txt" />
     <Text Include="pcoderesult.txt" />
+    <Text Include="lexer.txt" />
   </ItemGroup>
 </Project>

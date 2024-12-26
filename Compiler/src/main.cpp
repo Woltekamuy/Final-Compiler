@@ -6,10 +6,20 @@
 int main() {
 	FileProcessor fileProcessor;
 	LexicalAnalyser lexicalAnalyser;
+	lexicalAnalyser.getWords();	
+	//lexicalAnalyser.printWords();
+	
 	GrammaticalAnalyser grammaticalAnalyser(lexicalAnalyser.getWords());
 	grammaticalAnalyser.printPCode();
-	PCodeExecutor pCodeExecutor(grammaticalAnalyser.getCodes(),fileProcessor.getWriter());
-	pCodeExecutor.run();
-	pCodeExecutor.print();
+	grammaticalAnalyser.printErrors();
+	
+	if(!Errors::hasError())
+	{
+		PCodeExecutor pCodeExecutor(grammaticalAnalyser.getCodes(), fileProcessor.getWriter());
+		pCodeExecutor.run();
+		pCodeExecutor.print();
+	}
+	
+	
 	return 0;
 }

@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Word.h"
 #include "KeyWordMap.h"
+#include "GrammaticalAnalyser.h"
 
 class LexicalAnalyser {
 private:
@@ -35,12 +36,13 @@ private:
     // 处理字母和标识符
     void analyseLetter(char pre);
 
+    void error(std::string type);
 public:
     // 构造函数
     LexicalAnalyser();
 
     // 输出词法分析结果
-    void printWords(std::ofstream& writer);
+    void printWords();
 
     // 获取分析结果
     std::vector<Word> getWords() const;

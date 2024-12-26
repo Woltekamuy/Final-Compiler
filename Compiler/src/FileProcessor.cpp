@@ -5,7 +5,6 @@ FileProcessor::FileProcessor()
 {
     reader.open("testfile.txt");
     writer.open("pcoderesult.txt");
-    errorWriter.open("error.txt");
     code = transferFileToCode();
 }
 

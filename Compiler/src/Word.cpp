@@ -42,7 +42,7 @@ bool Word::typeSymbolizeValidateStmt() const {
 
 bool Word::typeSymbolizeBeginOfExp() const {
     return type == "LPARENT" || type == "IDENFR" || type == "INTCON" ||
-        type == "CHARCON" || type == "NOT" || type == "PLUS" ||
+        type == "CHRCON" || type == "NOT" || type == "PLUS" ||
         type == "MINU";
 }
 
@@ -74,7 +74,7 @@ std::string Word::getContent() const {
 int Word::getFormatNum() const {
     int n = 0;
     for (size_t i = 0; i < content.length(); ++i) {
-        if (i + 1 < content.length() && content[i] == '%' && content[i + 1] == 'd') {
+        if (i + 1 < content.length() && content[i] == '%' && (content[i + 1] == 'd'|| content[i + 1] == 'c') ) {
             n++;
         }
     }
@@ -83,10 +83,11 @@ int Word::getFormatNum() const {
 
 // 检查格式是否合法
 bool Word::isFormatIllegal() const {
+    /*
     for (size_t i = 1; i < content.length() - 1; ++i) {
         char c = content[i];
         if (!isLegal(c)) {
-            if (c == '%' && content[i + 1] == 'd') {
+            if (c == '%' && (content[i + 1] == 'd'|| content[i + 1] == 'c')) {
                 continue;
             }
             return true;
@@ -97,6 +98,7 @@ bool Word::isFormatIllegal() const {
             }
         }
     }
+    */
     return false;
 }
 

@@ -5,7 +5,7 @@
 LexicalAnalyser::LexicalAnalyser()  {
     code = FileProcessor().getCode();  // 假设FileProcessor类已经正确实现
     analyse();
-    words.push_back(Word());
+    //words.push_back(Word());
 }
 
 // 获取下一个字符
@@ -179,6 +179,7 @@ void LexicalAnalyser::analyseLogic(char pre) {
             else {
                 unGetChar();
                 words.push_back(Word("&", lineNum));
+                error("a");
             }
         }
         else {
@@ -188,6 +189,7 @@ void LexicalAnalyser::analyseLogic(char pre) {
             else {
                 unGetChar();
                 words.push_back(Word("|", lineNum));
+                error("a");
             }
         }
     }
@@ -227,7 +229,7 @@ void LexicalAnalyser::analyseChar() {
         case '0': charStr = (char)0; break;
         }
     }
-    words.push_back(Word("CHARCON", charStr, lineNum));
+    words.push_back(Word("CHRCON", charStr, lineNum));
     getChar();
 }
 
@@ -252,13 +254,19 @@ void LexicalAnalyser::analyseLetter(char pre) {
     }
 }
 
+void LexicalAnalyser::error(std::string type)
+{
+    Errors::getErrors().push_back(Error(lineNum, type));
+}
+
 // 输出词法分析结果到文件
-void LexicalAnalyser::printWords(std::ofstream& writer) {
+void LexicalAnalyser::printWords() {
+    std::ofstream wordsWriter("lexer.txt");
     for (const Word& word : words) {
-        writer << word.toString() << "\n";
+        wordsWriter << word.toString() << "\n";
     }
-    writer.flush();
-    writer.close();
+    wordsWriter.flush();
+    wordsWriter.close();
 }
 
 // 获取分析结果
